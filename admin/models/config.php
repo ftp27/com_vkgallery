@@ -3,7 +3,16 @@ defined ( '_JEXEC' ) or die ();
 
 jimport ( 'joomla.application.component.model' );
 
-class vkGalleryConfig extends JModel {
+
+
+/*
+* Model for working with main configuration
+*/
+class VkGalleryModelConfig extends JModel {
+
+	/*
+	* Get config from Data Base
+	*/
 	protected function getConfig() {	
 		$db = JFactory::getDBo();
 
@@ -14,6 +23,9 @@ class vkGalleryConfig extends JModel {
 		return $configs;
 	}
 
+	/*
+	* Checking for config
+	*/
 	public function isExist() {	
 		if ($this->getConfig()) {
 			return true;
@@ -22,6 +34,9 @@ class vkGalleryConfig extends JModel {
 		}
 	}
 
+	/*
+	* Get app_id
+	*/
 	public function getAppId() {
 		$config = $this->getConfig();
 		if ($config) {
@@ -31,6 +46,9 @@ class vkGalleryConfig extends JModel {
 		}
 	}
 
+	/*
+	* Get app_key
+	*/
 	public function getAppKey() {
 		$config = $this->getConfig();
 		if ($config) {
@@ -39,7 +57,10 @@ class vkGalleryConfig extends JModel {
 			return false;
 		}
 	}
-
+ 
+	/*
+	* Get user_id
+	*/
 	public function getUserId() {
 		$config = $this->getConfig();
 		if ($config) {
@@ -49,6 +70,9 @@ class vkGalleryConfig extends JModel {
 		}
 	}
 
+	/*
+	* Set new configuration 
+	*/
 	public function setConfig($app_id, $app_key, $user_id) {
 		$config = $this->getConfig();
 		if ($config) {

@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `#__vkg_config`;
 
 CREATE TABLE `#__vkg_config` (
  `app_id`  int(11) NOT NULL,
- `app_key` CHAR(256) NOT NULL,
+ `app_key` varchar(256) NOT NULL,
  `user_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `#__vkg_galleries`;
 CREATE TABLE `#__vkg_galleries` (
  `id`          int(11) NOT NULL,
  `thumb_id`    int(11) NOT NULL,
- `title`       CHAR(256) NOT NULL,
+ `title`       varchar(256) NOT NULL,
  `description` TEXT NOT NULL,
  `created`     int(11) NOT NULL,
  `updated`     int(11) NOT NULL,

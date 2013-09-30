@@ -4,6 +4,7 @@
 	<author>Aleksey Cherepanov</author>
 	<authorEmail>ftp27host@gmail.com</authorEmail>
 	<authorUrl>http://ftp27host.ru</authorUrl>
+	<creationDate>2013</creationDate>
 	<license>GPL v2</license>
 	<version>0.1-dev</version>
 	<description>Отображение альбомов вк как Галлереи</description>
@@ -36,6 +37,12 @@
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>vkgallery.php</filename>
+			<filename>controller.php</filename>
+			<filename>views/vkgallerys/view.html.php</filename>
+			<filename>views/vkgallerys/tmpl/default.php</filename>
+			<filename>models/config.php</filename>
+			<folder>models</folder>
+			<folder>views</folder>
 			<folder>sql</folder>
 		</files>
 	</administration>
