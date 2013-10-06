@@ -1,11 +1,3 @@
-DROP TABLE IF EXISTS `#__vkg_config`;
-
-CREATE TABLE `#__vkg_config` (
- `app_id`  int(11) NOT NULL,
- `app_key` varchar(256) NOT NULL,
- `user_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 DROP TABLE IF EXISTS `#__vkg_menutree`;
 
 CREATE TABLE `#__vkg_menutree` (
@@ -13,7 +5,7 @@ CREATE TABLE `#__vkg_menutree` (
  `type`     ENUM('elem', 'gallery') NOT NULL DEFAULT 'elem',
  `content`  int(11),
  `parent`   int(11),
- `position` int(11) NOT NULL AUTO_INCREMENT,
+ `position` int(11) NOT NULL,
  `visible`  BOOLEAN DEFAULT TRUE,
  PRIMARY KEY(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -29,7 +21,7 @@ CREATE TABLE `#__vkg_galleries` (
  `updated`     int(11) NOT NULL,
  `size`        int(11) NOT NULL,
  `thumb_src`   TEXT NOT NULL,
- `position`    int(11) NOT NULL AUTO_INCREMENT,
+ `position`    int(11) NOT NULL,
  PRIMARY KEY(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

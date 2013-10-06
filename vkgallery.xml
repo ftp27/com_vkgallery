@@ -34,16 +34,24 @@
 
 	<administration>
 		<menu>VK Gallery</menu>
+	<!--	<submenu>
+			<menu link="option=com_vkgallery" view="galleries"
+                                alt="Gallery/Galleries">Галереи</menu>
+			<menu link="option=com_vkgallery" view="tree"
+                                alt="Gallery/Tree">Структура</menu>
+		</submenu> -->
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>vkgallery.php</filename>
 			<filename>controller.php</filename>
-			<filename>views/vkgallerys/view.html.php</filename>
-			<filename>views/vkgallerys/tmpl/default.php</filename>
-			<filename>models/config.php</filename>
+			<filename>views/galleries/view.html.php</filename>
+			<filename>views/galleries/tmpl/default.php</filename>
+			<filename>models/galleries.php</filename>
+			<filename>config.xml</filename> 
 			<folder>models</folder>
-			<folder>views</folder>
 			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
 		</files>
 	</administration>
 </extension>
