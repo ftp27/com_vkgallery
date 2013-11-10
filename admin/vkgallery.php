@@ -1,19 +1,18 @@
 <?php
-defined('_JEXEC') or die;
+defined( '_JEXEC' ) or die( 'Restricted access' );
 
-JError::$legacy = false;
+jimport( 'joomla.session.session' );
+JTable::addIncludePath(JPATH_COMPONENT.'/tables');
+JLoader::registerPrefix('Vkgallery', JPATH_COMPONENT);
 
-$document = JFactory::getDocument();
+$app = JFactory::getApplication();
 
-jimport('joomla.application.component.controller');
+if($controller = $app->input->get('controller','default')) {
+	require_once(JPATH_COMPONENT.'/controllers/'.$controller.'.php');
+}
 
-$controller = JControllerLegacy::getInstance('VkGallery');
+$classname = 'VkgalleryControllers'.ucfirst($controller);
+$controller = new $classname();
 
-// Исполняем задачу task из Запроса.
-$input = JFactory::getApplication()->input;
-$controller->execute($input->getCmd('task', 'display'));
-
-// Перенаправляем, если перенаправление установлено в контроллере.
-$controller->redirect();
-
+$controller->execute();
 ?>

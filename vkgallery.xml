@@ -30,28 +30,29 @@
 		<filename>controller.php</filename>
 		<folder>models</folder>
 		<folder>views</folder>
+		<folder>tables</folder>
 	</files>
 
 	<administration>
 		<menu>VK Gallery</menu>
-	<!--	<submenu>
-			<menu link="option=com_vkgallery" view="galleries"
-                                alt="Gallery/Galleries">Галереи</menu>
-			<menu link="option=com_vkgallery" view="tree"
-                                alt="Gallery/Tree">Структура</menu>
-		</submenu> -->
+		<submenu>
+			<menu link="option=com_vkgallery" view="menu"
+				alt="Menu/Menus">Меню</menu>
+			<menu link="option=com_vkgallery" view="album"
+				alt="Album/Albums">Альбомы</menu>
+			<menu link="option=com_vkgallery" view="album"
+				alt="Image/Images">Фотографии</menu>
+		</submenu>
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>vkgallery.php</filename>
 			<filename>controller.php</filename>
-			<filename>views/galleries/view.html.php</filename>
-			<filename>views/galleries/tmpl/default.php</filename>
-			<filename>models/galleries.php</filename>
 			<filename>config.xml</filename> 
 			<folder>models</folder>
 			<folder>sql</folder>
 			<folder>tables</folder>
 			<folder>views</folder>
+			<folder>controllers</folder>
 		</files>
 	</administration>
 </extension>

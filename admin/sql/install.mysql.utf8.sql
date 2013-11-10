@@ -1,18 +1,19 @@
 DROP TABLE IF EXISTS `#__vkg_menutree`;
 
-CREATE TABLE `#__vkg_menutree` (
+CREATE TABLE `#__vkg_menu` (
  `id`       int(11) NOT NULL AUTO_INCREMENT,
+ `title`     varchar(256) NOT NULL
  `type`     ENUM('elem', 'gallery') NOT NULL DEFAULT 'elem',
- `content`  int(11),
+ `album`  int(11),
  `parent`   int(11),
  `position` int(11) NOT NULL,
  `visible`  BOOLEAN DEFAULT TRUE,
  PRIMARY KEY(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `#__vkg_galleries`;
+DROP TABLE IF EXISTS `#__vkg_album`;
 
-CREATE TABLE `#__vkg_galleries` (
+CREATE TABLE `#__vkg_album` (
  `id`          int(11) NOT NULL,
  `thumb_id`    int(11) NOT NULL,
  `title`       varchar(256) NOT NULL,
@@ -22,12 +23,13 @@ CREATE TABLE `#__vkg_galleries` (
  `size`        int(11) NOT NULL,
  `thumb_src`   TEXT NOT NULL,
  `position`    int(11) NOT NULL,
+  `visible`  BOOLEAN DEFAULT TRUE,
  PRIMARY KEY(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `#__vkg_photos`;
+DROP TABLE IF EXISTS `#__vkg_image`;
 
-CREATE TABLE `#__vkg_photos` (
+CREATE TABLE `#__vkg_image` (
  `id`         int(11) NOT NULL,
  `album_id`   int(11) NOT NULL,
  `photo_75`   TEXT NOT NULL,
