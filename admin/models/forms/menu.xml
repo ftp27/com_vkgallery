@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+<fieldset addfieldpath="/administrator/components/com_vkgallery/models/fields">
+	<field 
+		name="id" 
+		type="text" 
+		class="readonly input-large" 
+		label="ID"
+		description="идентификатор пункта меню" 
+		size="32" 
+		default="0"
+		readonly="true" />
+			
+	<field 
+		name="title" 
+		type="text" 
+		class="input-xxlarge" 
+		label="Наименование"
+		description="Наименование пункта меню" 
+		required="true" />
+		
+	<field
+		name="type"
+		id="visible"
+		type="list"
+		label="Тип"
+		description="Пункт меню с подпунктами или с альбомом"
+		class="inputbox"
+		size="1"
+		default="gallery">
+			<option value="elem">С подпунктами</option>
+			<option value="gallery">С альбомом</option>
+	</field>
+		
+	<field
+		name="parent"
+		type="Menus"
+		class="input-xxlarge"
+		label="Родитель"
+		required="true"
+		description="Выбор родительской пункта" />
+		
+	<field
+		name="parent"
+		type="Albums"
+		class="input-xxlarge"
+		label="Альбом"
+		description="Выбор альбома для отображения" />
+		
+	<field
+		name="visible"
+		id="visible"
+		type="list"
+		label="Видимость"
+		description="Видно ли изображение посетителям"
+		class="inputbox"
+		size="1"
+		default="true">
+			<option value="true">Видим</option>
+			<option value="false">Не видим</option>
+	</field>
+</fieldset>
+</form>
