@@ -1,5 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-class TableMenu extends JTable
+class TableImage extends JTable
 {
 	/** @var int Primary key */
 	var $id = null;

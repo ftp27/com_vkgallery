@@ -4,7 +4,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 //jimport( 'joomla.html.pagination' );
 jimport('joomla.application.component.modeladmin');
  
-class VkgalleyModelsDefault extends JModelAdmin
+class VkgalleryModelsDefault extends JModelAdmin
 {
     protected $__state_set = null;
     protected $_total = null;

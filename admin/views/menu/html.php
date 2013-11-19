@@ -15,8 +15,8 @@ class VkgalleryViewsMenu extends VkgalleryViewsDefault
 		$this->setLayout($layout);
 		 
 		//retrieve task list from model
-		$model = new VkgalleyModelsMenu();
-		$model->_layout = $layout;
+		$this->model = new VkgalleryModelsMenu();
+		$this->model->_layout = $layout;
 		
 		
 		switch($layout) {

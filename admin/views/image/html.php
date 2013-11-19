@@ -15,8 +15,8 @@ class VkgalleryViewsImage extends VkgalleryViewsDefault
 		$this->setLayout($layout);
 		 
 		//retrieve task list from model
-		$model = new VkgalleyModelsImage();
-		$model->_layout = $layout;
+		$this->model = new VkgalleryModelsImage();
+		$this->model->_layout = $layout;
 		
 		
 		switch($layout) {

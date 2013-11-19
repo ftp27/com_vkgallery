@@ -1,7 +1,7 @@
 <?php // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
  
-class VkgalleyModelsImage extends VkgalleyModelsDefault
+class VkgalleryModelsImage extends VkgalleryModelsDefault
 {
 
 	var $_id = null;
@@ -44,7 +44,7 @@ class VkgalleyModelsImage extends VkgalleyModelsDefault
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(TRUE);
 		$query->select('id, album_id, photo_75, photo_130, photo_604, photo_807, photo_1280, photo_2560, width, height, text, date, likes, comments, position, visible');
-		$query->from($_tableName);
+		$query->from($this->_tableName);
 
 		return $query;
 	}
@@ -107,6 +107,29 @@ class VkgalleyModelsImage extends VkgalleyModelsDefault
 	function populateState()
 	{
 
+	}
+	
+	function insert($data) {
+		$db = JFactory::getDBO();
+		$db->setQuery("INSERT INTO ".$this->_tableName.
+													"(`id`, `album_id`, `photo_75`, `photo_130`, `photo_604`, `photo_807`, `photo_1280`, `photo_2560`, `width`, `height`, `text`, `date`, `likes`, `comments`) VALUES ".
+													"(".
+														$data->id." , ".
+												"'".mysql_escape_string($data->album_id)."' , ".
+												"'".mysql_escape_string($data->photo_75)."' , ".
+												"'".mysql_escape_string($data->photo_130)."' , ".
+												"'".mysql_escape_string($data->photo_604)."' , ".
+												"'".mysql_escape_string($data->photo_807)."' , ".
+												"'".mysql_escape_string($data->photo_1280)."' , ".
+												"'".mysql_escape_string($data->photo_2560)."' , ".
+														$data->width." , ".
+														$data->height." , ".
+												"'".mysql_escape_string($data->text)."' , ".
+														$data->date." , ".
+														$data->likes." , ".
+														$data->comments.
+													")");
+		return $db->query();
 	}
 
  

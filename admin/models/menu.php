@@ -1,7 +1,7 @@
 <?php // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
  
-class VkgalleyModelsMenu extends VkgalleyModelsDefault
+class VkgalleryModelsMenu extends VkgalleryModelsDefault
 {
 	var $_id = null;
 	var $_title = null;
@@ -34,7 +34,7 @@ class VkgalleyModelsMenu extends VkgalleyModelsDefault
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(TRUE);
 		$query->select('id, title, type, album, parent, position, visible');
-		$query->from($_tableName);
+		$query->from($this->_tableName);
 
 		return $query;
 	}

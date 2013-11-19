@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-    <fieldset
-        name="account"
-        label="Настройки аккаунта ВК"
-        description="Установка параметров аккаунта vk.com и синхронизация сайта по API vk.com"
-    >
-        <field
-            name="app_id"
-            type="text"
-            label="APP_ID"
-            description="Идентификатор Вашего приложения"
-            default=""
-        />
-        <field
-            name="app_key"
-            type="text"
-            label="APP_KEY"
-            description="Защищенный ключ Вашего приложения"
-            default=""
-        />
-        <field
-            name="user_id"
-            type="text"
-            label="USER_ID"
-            description="ID страницы пользователя с которым следует проводить синхронизацию альбомов"
-            default=""
-        />
-    </fieldset>
+	<fieldset
+		name="account"
+		label="Настройки аккаунта ВК"
+		description="" 
+	>
+		<field
+			name="client_id"
+			type="text"
+			label="ID приложения"
+			description="Идентификатор Вашего приложения"
+			default=""
+		/>
+		<field
+			name="client_secret"
+			type="text"
+			label="Защищенный ключ"
+			description="Защищенный ключ Вашего приложения"
+			default=""
+		/>
+		<field
+			name="user_id"
+			type="text"
+			label="ID пользователя"
+			description="ID страницы пользователя с которым следует проводить синхронизацию альбомов"
+			default=""
+		/>
+	</fieldset>
 </config>

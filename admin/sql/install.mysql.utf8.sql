@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `#__vkg_menutree`;
 
 CREATE TABLE `#__vkg_menu` (
  `id`       int(11) NOT NULL AUTO_INCREMENT,
- `title`     varchar(256) NOT NULL
+ `title`     varchar(256) NOT NULL,
  `type`     ENUM('elem', 'gallery') NOT NULL DEFAULT 'elem',
  `album`  int(11),
  `parent`   int(11),

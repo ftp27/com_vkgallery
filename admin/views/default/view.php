@@ -2,10 +2,10 @@
 
 class VkgalleryViewsDefault extends JViewLegacy
 {
-	
+	protected $model = null;
+
     function display($tpl = null)
     {
-	
       	$this->addToolBar() ;
         //display
         return parent::display($tpl);
@@ -13,7 +13,8 @@ class VkgalleryViewsDefault extends JViewLegacy
 
     protected function addToolBar() {
 		JToolBarHelper::title(JText::_('Настройки галлереи'), 'vkgallery');
-		//JToolBarHelper::preferences('com_radiocatalog');
+		JToolBarHelper::preferences('com_vkgallery');
+		
 		$app = JFactory::getApplication();
 		$url_main = "index.php?option=com_vkgallery";
 		$vName = $app->input->get('view','menu');
@@ -39,13 +40,16 @@ class VkgalleryViewsDefault extends JViewLegacy
 			$vName == 'import'
 		);
 		$this->sidebar = JHtmlSidebar::render();
+		
+		
 	}
 	
 	public function displayItems() {
+		$app = JFactory::getApplication();
 		$this->limitstart = $app->input->get('limitstart',0);
-		$model->set("limitstart",$this->limitstart);
-		$this->items = $model->listItems();	
-		$this->pagination = $model->getPagination();
+		$this->model->set("limitstart",$this->limitstart);
+		$this->items = $this->model->listItems();	
+		$this->pagination = $this->model->getPagination();
 	}
 	
 	public function displayItem() {
@@ -53,11 +57,11 @@ class VkgalleryViewsDefault extends JViewLegacy
 		
 		if (isset($data['jform'])) {
 			$data['jform']['table'] = 'category';
-			$model->store($data['jform']);
+			$this->model->store($data['jform']);
 		}
 		
 		$this->id = $app->input->get('id',0);
-		$model->_id = $this->id;
-		$this->form = $model->getForm();
+		$this->model->_id = $this->id;
+		$this->form = $this->model->getForm();
 	}
 }

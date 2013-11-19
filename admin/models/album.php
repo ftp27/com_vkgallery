@@ -1,7 +1,7 @@
 <?php // no direct access
 defined( '_JEXEC' ) or die( 'Restricted access' );
  
-class VkgalleyModelsAlbum extends VkgalleyModelsDefault
+class VkgalleryModelsAlbum extends VkgalleryModelsDefault
 {
 	var $_id = null;
 	var $_thumb_id = null;
@@ -15,6 +15,7 @@ class VkgalleyModelsAlbum extends VkgalleyModelsDefault
 	var $_visible = null;
 	
 	var $_tableName = '#__vkg_album';
+	
 	
 	function __construct()
 	{
@@ -37,7 +38,7 @@ class VkgalleyModelsAlbum extends VkgalleyModelsDefault
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(TRUE);
 		$query->select('id, thumb_id, title, description, created, updated, size, thumb_src, position, visible');
-		$query->from($_tableName);
+		$query->from($this->_tableName);
 
 		return $query;
 	}
@@ -74,7 +75,7 @@ class VkgalleyModelsAlbum extends VkgalleyModelsDefault
 			$query->where('updated = ' . (float) $this->_updated);
 		}
 		
-		f(is_numeric($this->_size))
+		if(is_numeric($this->_size))
 		{
 			$query->where('size = ' . (float) $this->_size);
 		}
@@ -101,6 +102,23 @@ class VkgalleyModelsAlbum extends VkgalleyModelsDefault
 	{
 
 	}
+	
+	function insert($data) {
+		$db = JFactory::getDBO();
+		$db->setQuery("INSERT INTO ".$this->_tableName.
+													"(`id`, `thumb_id`, `title`, `description`, `created`, `updated`, `size`, `thumb_src`) VALUES ".
+													"(".
+														$data->id." , ".
+												"'".mysql_escape_string($data->thumb_id)."' , ".
+												"'".mysql_escape_string($data->title)."' , ".
+												"'".mysql_escape_string($data->description)."' , ".
+														$data->created." , ".
+														$data->updated." , ".
+														$data->size." , ".
+												"'".mysql_escape_string($data->thumb_src)."'".
+													")");
+		return $db->query();
+	}
 
- 
 }
+?>

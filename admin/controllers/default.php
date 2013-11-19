@@ -1,6 +1,6 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
 
-class VkgalletyControllersDefault extends JControllerBase
+class VkgalleryControllersDefault extends JControllerBase
 {
 
 	public function execute()
@@ -10,7 +10,7 @@ class VkgalletyControllersDefault extends JControllerBase
 		
 		$app = $this->getApplication();
 
-		$viewName = $app->input->getWord('view', $defaultView);
+		$viewName = $app->input->getWord('view', $defaultView);		
 		switch ($viewName) {
 			case "menu":
 				$defaultLayout = "items";
@@ -22,8 +22,14 @@ class VkgalletyControllersDefault extends JControllerBase
 				$defaultLayout = "images";
 				break;
 			case "import":
-				$defaultLayout = "permissions";
+				$defaultLayout = "login";
 				break;
+		}
+		
+		$code =  JRequest::getVar('code', '');
+		if ($code != "") {
+			$viewName = "import";
+			$defaultLayout = "synhro";
 		}
 		
 		$layoutName = $app->input->getWord('layout',$defaultLayout);
@@ -31,6 +37,7 @@ class VkgalletyControllersDefault extends JControllerBase
 		
 
 		$app->input->set('view', $viewName);
+		$app->input->set('layout', $layoutName);
 		
 		require_once(JPATH_COMPONENT. '/views/' . $viewName.'/html.php');
 		$viewClass = 'VkgalleryViews' . ucfirst($viewName);
