@@ -53,6 +53,7 @@
 			<folder>tables</folder>
 			<folder>views</folder>
 			<folder>controllers</folder>
+			<folder>css</folder>
 		</files>
 	</administration>
 </extension>

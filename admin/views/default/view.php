@@ -6,6 +6,9 @@ class VkgalleryViewsDefault extends JViewLegacy
 
     function display($tpl = null)
     {
+	$document = JFactory::getDocument();
+	$document->addStyleSheet(JURI::base().'components/com_vkgallery/css/style.css');
+
       	$this->addToolBar() ;
         //display
         return parent::display($tpl);

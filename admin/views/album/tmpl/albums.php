@@ -14,10 +14,9 @@ JHtml::_('behavior.tooltip');
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>id</td>
-			<th>Обложка</th>
+			<th style="width: 1px;">id</td>
 			<th>Наименование</th>
-			<th>Видимость</th>
+			<th style="width: 1px;">Видимость</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,20 +27,16 @@ JHtml::_('behavior.tooltip');
 			<tr>
 				<td><?=$this->items[$i]->id?></td>
 				<td>
-					<img src="<?=$this->items[$i]->thumb_src?>">
-				</td>
-				<td>
 					<a href="<?=JRoute::_('index.php?option=com_vkgallery&layout=album&view=album&id='.$this->items[$i]->id); ?>">
 						<?=$this->items[$i]->title?>
 					</a>
 				</td>
 				<td>
 					<?php
-					echo $this->items[$i]->visible;
 						if ($this->items[$i]->visible == "1") {
-							echo '<span class="glyphicon glyphicon-eye-open"></span>';
+							echo '<span class="icon-eye-open"></span>';
 						} else {
-							echo '<span class="glyphicon glyphicon-eye-close"></span>';
+							echo '<span class="icon-eye-blocked"></span>';
 						}
 					?>
 				</td>

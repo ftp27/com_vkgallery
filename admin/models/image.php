@@ -41,10 +41,32 @@ class VkgalleryModelsImage extends VkgalleryModelsDefault
 
 	protected function _buildQuery()
 	{
+		$im = 'i'; //Image table name
+		$al = 'a'; //Album table name
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(TRUE);
-		$query->select('id, album_id, photo_75, photo_130, photo_604, photo_807, photo_1280, photo_2560, width, height, text, date, likes, comments, position, visible');
-		$query->from($this->_tableName);
+		$query->select(	"$im.id AS id, ".
+				"$im.album_id AS album_id, ".
+				"$im.photo_75 AS photo_75, ".
+				"$im.photo_130 AS photo_130, ".
+				"$im.photo_604 AS photo_604, ".
+				"$im.photo_807 AS photo_807, ".
+				"$im.photo_1280 AS photo_1280, ".
+				"$im.photo_2560 AS photo_2560, ".
+				"$im.width AS width, ".
+				"$im.height AS height, ".
+				"$im.text AS text, ".
+				"$im.date AS date, ".
+				"$im.likes AS likes, ".
+				"$im.comments AS comments, ".
+				"$im.position AS position, ".
+				"$im.visible AS visible, ".
+				"$al.title AS album_title, ".
+				"$al.size AS album_size, ".
+				"$al.visible as album_visible"
+		);
+		$query->from($this->_tableName." AS $im");
+		$query->leftJoin("#__vkg_album AS $al ON $im.album_id = $al.id");
 
 		return $query;
 	}
