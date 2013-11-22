@@ -66,7 +66,7 @@ class TableImage extends JTable
 	*/
 	function check()
 	{
-		if(!$this->name)
+		if(!$this->album_id)
 		{
 			$this->setError(JText::_('Ошибка'));
 			return false;

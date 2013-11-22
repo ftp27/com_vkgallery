@@ -24,9 +24,7 @@ class VkgalleryViewsImage extends VkgalleryViewsDefault
 				parent::displayItems();
 				break;
 			case "image":
-				/*
-				parent::displayItem();
-				*/
+				parent::displayItem('image');
 				break;
 		}
 	

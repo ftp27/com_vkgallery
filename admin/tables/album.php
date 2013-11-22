@@ -48,7 +48,7 @@ class TableAlbum extends JTable
 	*/
 	function check()
 	{
-		if(!$this->id)
+		if(!$this->title)
 		{
 			$this->setError(JText::_('Ошибка'));
 			return false;

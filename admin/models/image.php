@@ -30,8 +30,8 @@ class VkgalleryModelsImage extends VkgalleryModelsDefault
 
  	public function getForm($data = array(), $loadData = true) 
 	{
-		//$form = $this->loadForm($this->option.'.item', 'item', array('control' => 'jform', 'load_data' => false));
-		//$form->bind($this->getItem());
+		$form = $this->loadForm($this->option.'.image', 'image', array('control' => 'jform', 'load_data' => false));
+		$form->bind($this->getItem());
  
 		if (empty($form)) {
 			return false;
@@ -73,54 +73,56 @@ class VkgalleryModelsImage extends VkgalleryModelsDefault
 
 	protected function _buildWhere(&$query)
 	{
+		$im = 'i';
+		
 		if(is_numeric($this->_id))
 		{
-			$query->where('id = ' . (int) $this->_id);
+			$query->where($im.'.id = ' . (int) $this->_id);
 		}
 		
 		if(is_numeric($this->_album_id))
 		{
-			$query->where('album_id = ' . (float) $this->_album_id);
+			$query->where($im.'.album_id = ' . (float) $this->_album_id);
 		}
 		
 		if($this->_text)
 		{
-			$query->where('text = "' . $this->_text . '"');
+			$query->where($im.'.text = "' . $this->_text . '"');
 		}
 		
 		if(is_numeric($this->_date))
 		{
-			$query->where('date = ' . (float) $this->_date);
+			$query->where($im.'.date = ' . (float) $this->_date);
 		}
 		
 		if(is_numeric($this->_width))
 		{
-			$query->where('width = ' . (float) $this->_width);
+			$query->where($im.'.width = ' . (float) $this->_width);
 		}
 		
 		if(is_numeric($this->_height))
 		{
-			$query->where('height = ' . (float) $this->_height);
+			$query->where($im.'.height = ' . (float) $this->_height);
 		}
 		
 		if(is_numeric($this->_likes))
 		{
-			$query->where('likes = ' . (float) $this->_likes);
+			$query->where($im.'.likes = ' . (float) $this->_likes);
 		}
 		
 		if(is_numeric($this->_comments))
 		{
-			$query->where('comments = ' . (float) $this->_comments);
+			$query->where($im.'.comments = ' . (float) $this->_comments);
 		}
 		
 		if(is_numeric($this->_position))
 		{
-			$query->where('position = ' . (int) $this->_position);
+			$query->where($im.'.position = ' . (int) $this->_position);
 		}
 		
 		if(is_bool($this->_visible))
 		{
-			$query->where('visible = ' .$this->_visible);
+			$query->where($im.'.visible = ' .$this->_visible);
 		}
 
 		return $query;

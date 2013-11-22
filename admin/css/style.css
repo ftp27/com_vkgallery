@@ -1,6 +1,6 @@
 .vkg-image-gallery {
 	text-align: center;
-        margin: 0px 0 10px;
+	margin: 0px 0 10px;
 	display: block;
 	list-style-type: disc;
 	-webkit-margin-before: 1em;
@@ -11,11 +11,9 @@
 }
 
 .vkg-image-gallery>li {
-        width : 150px;
-        height: 200px;
-        margin: 0px 0 20px;
-        vertical-align: top;
-        text-align: center;
+	margin: 0px 0 20px;
+	vertical-align: top;
+	text-align: center;
 
 	display: inline-block;
 	border: 1px solid #ddd;
@@ -36,8 +34,12 @@
 }
 
 .vkg-image-gallery>li>.vkg-image {
+	margin: 5px;
 	display: block;
-	padding: 5px;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	text-align: center;
 }
 
 .vkg-image-gallery>li>.vkg-image-title {

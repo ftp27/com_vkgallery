@@ -24,8 +24,8 @@ class VkgalleryModelsAlbum extends VkgalleryModelsDefault
 
  	public function getForm($data = array(), $loadData = true) 
 	{
-		//$form = $this->loadForm($this->option.'.item', 'item', array('control' => 'jform', 'load_data' => false));
-		//$form->bind($this->getItem());
+		$form = $this->loadForm($this->option.'.album', 'album', array('control' => 'jform', 'load_data' => false));
+		$form->bind($this->getItem());
  
 		if (empty($form)) {
 			return false;

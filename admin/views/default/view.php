@@ -55,16 +55,18 @@ class VkgalleryViewsDefault extends JViewLegacy
 		$this->pagination = $this->model->getPagination();
 	}
 	
-	public function displayItem() {
+	public function displayItem($table) {
+		$app = JFactory::getApplication();
 		$data = isset($data) ? $data : JRequest::get('post');
 		
 		if (isset($data['jform'])) {
-			$data['jform']['table'] = 'category';
+			$data['jform']['table'] = $table;
 			$this->model->store($data['jform']);
 		}
 		
 		$this->id = $app->input->get('id',0);
 		$this->model->_id = $this->id;
 		$this->form = $this->model->getForm();
+		$this->item = $this->model->getItem();
 	}
 }

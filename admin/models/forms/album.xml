@@ -46,8 +46,8 @@
 		class="inputbox"
 		size="1"
 		default="true">
-			<option value="true">Видим</option>
-			<option value="false">Не видим</option>
+			<option value="1">Видим</option>
+			<option value="0">Не видим</option>
 	</field>
 </fieldset>
 </form>
