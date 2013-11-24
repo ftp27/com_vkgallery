@@ -1,24 +1,16 @@
 <?php
-// Запрет прямого доступа.
-defined('_JEXEC') or die;
+defined( '_JEXEC' ) or die( 'Restricted access' );
 
-// Подключаем логирование.
-JLog::addLogger(
-    array('text_file' => 'com_vkgallery.php'),
-    JLog::ALL,
-    array('com_helloworld')
-);
- 
-// Подключаем библиотеку контроллера Joomla.
-jimport('joomla.application.component.controller');
- 
+jimport( 'joomla.session.session' );
+JTable::addIncludePath(JPATH_COMPONENT.'/tables');
+JLoader::registerPrefix('Vkgallery', JPATH_COMPONENT);
 
-$controller = JControllerLegacy::getInstance('VkGallery');
- 
-// Исполняем задачу task из Запроса.
-$input = JFactory::getApplication()->input;
-$controller->execute($input->getCmd('task', 'display'));
- 
-// Перенаправляем, если перенаправление установлено в контроллере.
-$controller->redirect();
+$app = JFactory::getApplication();
+require_once(JPATH_COMPONENT.'/controller.php');
+
+
+$classname = 'VkGalleryController';
+$controller = new $classname();
+
+$controller->execute();
 ?>

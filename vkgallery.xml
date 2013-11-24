@@ -28,25 +28,19 @@
 		<filename>index.html</filename>
 		<filename>vkgallery.php</filename>
 		<filename>controller.php</filename>
+		<filename>router.php</filename>
 		<folder>models</folder>
 		<folder>views</folder>
 		<folder>tables</folder>
+		<folder>css</folder>
+		<folder>js</folder>
 	</files>
 
 	<administration>
 		<menu>VK Gallery</menu>
-		<submenu>
-			<menu link="option=com_vkgallery" view="menu"
-				alt="Menu/Menus">Меню</menu>
-			<menu link="option=com_vkgallery" view="album"
-				alt="Album/Albums">Альбомы</menu>
-			<menu link="option=com_vkgallery" view="album"
-				alt="Image/Images">Фотографии</menu>
-		</submenu>
 		<files folder="admin">
 			<filename>index.html</filename>
 			<filename>vkgallery.php</filename>
-			<filename>controller.php</filename>
 			<filename>config.xml</filename> 
 			<folder>models</folder>
 			<folder>sql</folder>

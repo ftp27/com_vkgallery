@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `#__vkg_menutree`;
+DROP TABLE IF EXISTS `#__vkg_menu`;
 
 CREATE TABLE `#__vkg_menu` (
  `id`       int(11) NOT NULL AUTO_INCREMENT,

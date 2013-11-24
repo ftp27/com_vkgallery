@@ -1,5 +1,5 @@
 <?php defined( '_JEXEC' ) or die( 'Restricted access' );
-class TableMenu extends JTable
+class TableImage extends JTable
 {
 	/** @var int Primary key */
 	var $id = null;
@@ -66,7 +66,7 @@ class TableMenu extends JTable
 	*/
 	function check()
 	{
-		if(!$this->name)
+		if(!$this->album_id)
 		{
 			$this->setError(JText::_('Ошибка'));
 			return false;

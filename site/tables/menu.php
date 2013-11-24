@@ -10,8 +10,8 @@ class TableMenu extends JTable
 	/** @var string Type */
 	var $type = null;
 	
-	/** @var integer Content */
-	var $content = null;
+	/** @var integer Album */
+	var $album = null;
 	
 	/** @var integer Parent */
 	var $parent = null;
@@ -39,7 +39,7 @@ class TableMenu extends JTable
 	*/
 	function check()
 	{
-		if(!$this->name)
+		if(!$this->id)
 		{
 			$this->setError(JText::_('Ошибка'));
 			return false;
