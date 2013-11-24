@@ -74,7 +74,7 @@ class VkgalleryViewsImport extends VkgalleryViewsDefault
 						if (!$images[$j]->height) {
 							$images[$j]->height = 0;
 						}
-
+						
 						$this->story($ImageTable, $ImageModel, $images[$j]);
 					}
 					

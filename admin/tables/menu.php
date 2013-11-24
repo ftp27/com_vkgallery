@@ -39,7 +39,7 @@ class TableMenu extends JTable
 	*/
 	function check()
 	{
-		if(!$this->name)
+		if(!$this->id)
 		{
 			$this->setError(JText::_('Ошибка'));
 			return false;

@@ -41,7 +41,7 @@
 		description="Выбор родительской пункта" />
 		
 	<field
-		name="parent"
+		name="album"
 		type="Albums"
 		class="input-xxlarge"
 		label="Альбом"
@@ -52,12 +52,12 @@
 		id="visible"
 		type="list"
 		label="Видимость"
-		description="Видно ли изображение посетителям"
+		description="Видим ли пункт меню посетителям"
 		class="inputbox"
 		size="1"
 		default="true">
-			<option value="true">Видим</option>
-			<option value="false">Не видим</option>
+			<option value="1">Видим</option>
+			<option value="0">Не видим</option>
 	</field>
 </fieldset>
 </form>

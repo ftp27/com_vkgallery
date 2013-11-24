@@ -20,8 +20,8 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 
  	public function getForm($data = array(), $loadData = true) 
 	{
-		//$form = $this->loadForm($this->option.'.item', 'item', array('control' => 'jform', 'load_data' => false));
-		//$form->bind($this->getItem());
+		$form = $this->loadForm($this->option.'.menu', 'menu', array('control' => 'jform', 'load_data' => false));
+		$form->bind($this->getItem());
  
 		if (empty($form)) {
 			return false;
@@ -31,49 +31,64 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 
 	protected function _buildQuery()
 	{
+		$m = "main";
+		$p = "parent";
+		$a = "album";
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(TRUE);
-		$query->select('id, title, type, album, parent, position, visible');
-		$query->from($this->_tableName);
+		$query->select(
+			"$m.id as id, ".
+			"$m.title as title, ".
+			"$m.type as type, ".
+			"$m.album as album, ".
+			"$m.parent as parent, ".
+			"$m.position as position, ".
+			"$m.visible as visible, ".
+			"$p.title as parent_title, ".
+			"$a.title as album_title");
+		$query->from($this->_tableName." as $m");
+		$query->leftJoin($this->_tableName." as $p ON $m.parent = $p.id");
+		$query->leftJoin("#__vkg_album as $a ON $m.album = $a.id");
 
 		return $query;
 	}
 
 	protected function _buildWhere(&$query)
 	{
+		$m = "main";
 		if(is_numeric($this->_id))
 		{
-			$query->where('id = ' . (int) $this->_id);
+			$query->where($m.'.id = ' . (int) $this->_id);
 		}
 
 		if($this->_title)
 		{
-			$query->where('title = "' . $this->_title . '"');
+			$query->where($m.'.title = "' . $this->_title . '"');
 		}
 		
 		if($this->_type)
 		{
-			$query->where('type = "' . $this->_type . '"');
+			$query->where($m.'.type = "' . $this->_type . '"');
 		}
 	
 		if(is_numeric($this->_album))
 		{
-			$query->where('album = ' . (float) $this->_album);
+			$query->where($m.'.album = ' . (float) $this->_album);
 		}
 
 		if(is_numeric($this->_parent))
 		{
-			$query->where('parent = ' . (int) $this->_parent);
+			$query->where($m.'.parent = ' . (int) $this->_parent);
 		}
 		
 		if(is_numeric($this->_position))
 		{
-			$query->where('position = ' . (int) $this->_position);
+			$query->where($m.'.position = ' . (int) $this->_position);
 		}
 		
 		if(is_bool($this->_visible))
 		{
-			$query->where('visible = ' .$this->_visible);
+			$query->where($m.'.visible = ' .$this->_visible);
 		}
 
 		return $query;
@@ -82,6 +97,32 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 	function populateState()
 	{
 
+	}
+	
+	function getPathWay($id, &$items = array()) {
+		$model = new VkgalleryModelsMenu();
+		$model->_id= $id;
+		$item = $model->getItem();
+		$items[] = $item;
+		
+		if ($item->parent > 0) {
+			$this->getPathWay($item->parent, $items);
+		}
+		return $items;
+	}
+	
+	function getChilds($id, &$items = array()) {
+		$model = new VkgalleryModelsMenu();
+			
+			$model->_parent= $id;
+			$childs = $model->getItems();
+			$items = array_merge($items,$childs);
+			
+			foreach ($childs as &$child) {
+				$items = $this->getChilds($child->id, $items);
+			}
+
+		return $items;
 	}
 
  

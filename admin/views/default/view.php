@@ -66,6 +66,7 @@ class VkgalleryViewsDefault extends JViewLegacy
 		
 		$this->id = $app->input->get('id',0);
 		$this->model->_id = $this->id;
+		
 		$this->form = $this->model->getForm();
 		$this->item = $this->model->getItem();
 	}

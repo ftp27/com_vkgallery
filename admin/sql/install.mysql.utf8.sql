@@ -5,7 +5,7 @@ CREATE TABLE `#__vkg_menu` (
  `title`     varchar(256) NOT NULL,
  `type`     ENUM('elem', 'gallery') NOT NULL DEFAULT 'elem',
  `album`  int(11),
- `parent`   int(11),
+ `parent`   int(11) NOT NULL DEFAULT 0,
  `position` int(11) NOT NULL,
  `visible`  BOOLEAN DEFAULT TRUE,
  PRIMARY KEY(`id`)

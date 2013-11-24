@@ -12,6 +12,18 @@ class VkgalleryViewsMenu extends VkgalleryViewsDefault
 		$app = JFactory::getApplication();
 
 		$layout = $app->input->getWord('layout','items');
+		$task = $app->input->getWord('task','');
+		
+		$MenuTable =& JTable::getInstance('menu', 'Table');
+		if ($task == 'add') {
+			$layout = 'item';
+			$MenuTable->store();
+			$app->input->set('id', $MenuTable->id);
+		} else if ($task == 'delete') {
+			$layout = 'items';
+			$MenuTable->delete($app->input->get('id'));
+		} 
+		
 		$this->setLayout($layout);
 		 
 		//retrieve task list from model
@@ -22,11 +34,10 @@ class VkgalleryViewsMenu extends VkgalleryViewsDefault
 		switch($layout) {
 			case "items" :
 				parent::displayItems();
+				JToolBarHelper::addNew();
 				break;
 			case "item":
-				/*
-				parent::displayItem();
-				*/
+				parent::displayItem('menu');
 				break;
 		}
 	

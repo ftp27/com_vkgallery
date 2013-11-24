@@ -89,6 +89,16 @@ public function listItems()
     return $list;
 }
 
+public function getItems() 
+{
+	$query = $this->_buildQuery();
+    $query = $this->_buildWhere($query);
+    $db = JFactory::getDBO();
+    $db->setQuery($query);
+    $result = $db->loadObjectList();
+    return $result;
+}
+
 protected function _getList($query, $limitstart = 0, $limit = 0)
 {
     $db = JFactory::getDBO();

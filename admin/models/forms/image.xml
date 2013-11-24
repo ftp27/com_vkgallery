@@ -46,8 +46,7 @@
 		type="text" 
 		class="input-xxlarge" 
 		label="Описание"
-		description="текст описания фотографии" 
-		required="true" />
+		description="текст описания фотографии" />
 		
 	<field
 		name="visible"

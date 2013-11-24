@@ -34,15 +34,14 @@
 		type="text" 
 		class="input-xxlarge" 
 		label="Описание"
-		description="описание альбома" 
-		required="true" />
+		description="описание альбома" />
 		
 	<field
 		name="visible"
 		id="visible"
 		type="list"
 		label="Видимость"
-		description="Видно ли изображение посетителям"
+		description="Виден ли альбом посетителям"
 		class="inputbox"
 		size="1"
 		default="true">
