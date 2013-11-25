@@ -34,7 +34,7 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 		$m = "main";
 		$p = "parent";
 		$a = "album";
-		$i = "image"
+		$i = "image";
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(TRUE);
 		$query->select(
@@ -49,7 +49,7 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 			"$a.title as album_title, ".
 			"$i.photo_604 as thumb, ".
 			"$i.width as thumb_width, ".
-			"$i.height as thumb_height, ".
+			"$i.height as thumb_height"
 			);
 		$query->from($this->_tableName." as $m");
 		$query->leftJoin($this->_tableName." as $p ON $m.parent = $p.id");

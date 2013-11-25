@@ -57,7 +57,7 @@ public function listItems()
 
 public function getItems() 
 {
-	$query = $this->_buildQuery();
+    $query = $this->_buildQuery();
     $query = $this->_buildWhere($query);
     $db = JFactory::getDBO();
     $db->setQuery($query);

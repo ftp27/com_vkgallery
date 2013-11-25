@@ -4,8 +4,10 @@ class VkgalleryViewsVkgalleryHtml extends JViewLegacy
 {
 	function display()
 	{
-		
+		$pathToCom = JURI::base().'components/com_vkgallery';
 		$app = JFactory::getApplication();
+		$document = JFactory::getDocument();
+
 		$this->id = $app->input->get('id',0);
 		$page = $app->input->get('page',0);
 		
@@ -31,10 +33,15 @@ class VkgalleryViewsVkgalleryHtml extends JViewLegacy
 			$this->childs = $menuModel->getItems();
 		} else {
 			$layout = "album";
+			$document->addStyleSheet($pathToCom.'/css/style.css');
+			$document->addScript($pathToCom.'/js/blueimp-gallery.min.js');
+			$imageModel = new VkgalleryModelsImage();
+			$imageModel->_album_id = $this->menuItem->album;
+			$this->images = $imageModel->getItems();
 		}
 
 		//display
-		$document->addStyleSheet(JURI::base().'components/com_vkgallery/css/style.css');
+		$document->addStyleSheet($pathToCom.'/css/style.css');
 		$this->setLayout($layout);
 		return parent::display();
 	}

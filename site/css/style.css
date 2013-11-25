@@ -45,3 +45,14 @@
 .vkg-image-gallery>li>.vkg-image-title {
 	vertical-align: bottom;
 }
+
+#vkg-image-set>a>div {
+	margin: 5px;
+	display: block;
+	width: 86px;
+	height: 86px;
+	overflow: hidden;
+	text-align: center;
+}
+
+

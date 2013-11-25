@@ -32,7 +32,7 @@ defined('_JEXEC') or die;
 			if ($this->childs[$i]->type != "elem") {
 		?>
 			  <li>
-				<a class="vkg-image" href="<?=JRoute::_('index.php?option=com_vkgallery&layout=image&view=image&id='.$this->childs[$i]->id)?>">
+				<a class="vkg-image" href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
 					<img src="<?=$this->childs[$i]->thumb ?>" style="
 						<?php
 							$width = $this->childs[$i]->thumb_width ;
@@ -46,7 +46,7 @@ defined('_JEXEC') or die;
 						"
 					>
 				<a class="vkg-image-title" 
-					href="<?=JRoute::_('index.php?option=com_vkgallery&layout=album&view=album&id='.$this->childs[$i]->id)?>">
+					href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
 						<?=$this->childs[$i]->title?>
 				</a>
 				</a>

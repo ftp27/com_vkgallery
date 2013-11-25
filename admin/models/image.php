@@ -82,7 +82,7 @@ class VkgalleryModelsImage extends VkgalleryModelsDefault
 		
 		if(is_numeric($this->_album_id))
 		{
-			$query->where($im.'.album_id = ' . (float) $this->_album_id);
+			$query->where($im.'.album_id = ' . (int) $this->_album_id);
 		}
 		
 		if($this->_text)
@@ -92,27 +92,27 @@ class VkgalleryModelsImage extends VkgalleryModelsDefault
 		
 		if(is_numeric($this->_date))
 		{
-			$query->where($im.'.date = ' . (float) $this->_date);
+			$query->where($im.'.date = ' . (int) $this->_date);
 		}
 		
 		if(is_numeric($this->_width))
 		{
-			$query->where($im.'.width = ' . (float) $this->_width);
+			$query->where($im.'.width = ' . (int) $this->_width);
 		}
 		
 		if(is_numeric($this->_height))
 		{
-			$query->where($im.'.height = ' . (float) $this->_height);
+			$query->where($im.'.height = ' . (int) $this->_height);
 		}
 		
 		if(is_numeric($this->_likes))
 		{
-			$query->where($im.'.likes = ' . (float) $this->_likes);
+			$query->where($im.'.likes = ' . (int) $this->_likes);
 		}
 		
 		if(is_numeric($this->_comments))
 		{
-			$query->where($im.'.comments = ' . (float) $this->_comments);
+			$query->where($im.'.comments = ' . (int) $this->_comments);
 		}
 		
 		if(is_numeric($this->_position))
