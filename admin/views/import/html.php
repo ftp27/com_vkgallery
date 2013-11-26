@@ -43,7 +43,7 @@ class VkgalleryViewsImport extends VkgalleryViewsDefault
 				$access_token = $obj->access_token;
 				
 				//get Albums
-				$json = file_get_contents("https://api.vk.com/method/photos.getAlbums?owner_id=".$this->user_id."&need_covers=1&v=5.2");
+				$json = file_get_contents("https://api.vk.com/method/photos.getAlbums?owner_id=".$this->user_id."&need_covers=1&v=5.2&access_token=".$access_token);
 				$obj = json_decode($json);
 				
 				$count = $obj->response->count;

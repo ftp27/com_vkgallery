@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-    <layout title="Тестовая кнопка">
-        <message>Проверка компонента</message>
+    <layout title="Пункт меню">
+        <message>Отобразить пункт меню или альбом</message>
     </layout>
+    <fields name="request">
+        <fieldset name="request">
+	    <field 
+		name="id" 
+		type="Menus" 
+		label="Пункт меню" 
+		description="Выбор родительской пункта"/>
+        </fieldset>
+    </fields>
 </metadata>
