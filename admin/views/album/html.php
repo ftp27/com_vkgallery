@@ -30,7 +30,7 @@ class VkgalleryViewsAlbum extends VkgalleryViewsDefault
 				$this->model->set("limitstart",0);
 				$this->model->set("limit",10000);
 				$modelImage->_album_id  = $this->item->id;
-				$this->images = $modelImage->listItems();
+				$this->images = $modelImage->getItems();
 								
 				$modelImage->_id = $this->item->thumb_id;
 				$this->thumb = $modelImage->getItem();

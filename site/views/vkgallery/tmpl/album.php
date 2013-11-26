@@ -13,7 +13,11 @@ defined('_JEXEC') or die;
 	<?php
 		$size = count($this->pathway);
 		$i = 0;
+		$visible = true;
 		for ($i=$size; $i > 0; $i--) {
+			if ($this->pathway[$i]->visible == "0") {
+				$visible = false;
+			}
 		?>
 			<li>
 				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->pathway[$i]->id)?>">
@@ -25,17 +29,11 @@ defined('_JEXEC') or die;
 	?>
 	<li class="active"><?=$this->pathway[0]->title?></li>
 </ol>
+<?php
+ if ($visible) {
+?>
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-</div>
-<div id="vkg-image-set" class="vkg-image-gallery">
+<ul id="vkg-image-set" class="vkg-image-gallery links">
 	<?php
 	$size = count($this->images);
 	$i = 0;
@@ -49,8 +47,10 @@ defined('_JEXEC') or die;
 		} else if ($this->images[$i]->photo_604 != "") {
 			$image = $this->images[$i]->photo_604;
 		}
+		if ($this->images[$i]->visible == "1") {
 	?>
-		<a href="<?=$image?>" title="<?=$this->images[$i]->text?>" data-gallery>
+		<li>
+		<a href="<?=$image?>" title="<?=$this->images[$i]->text?>" class="vkg-image" data-gallery>
 			<img src="<?=$this->images[$i]->photo_130?>" style="
 				<?php
 					$width = $this->images[$i]->width ;
@@ -63,24 +63,33 @@ defined('_JEXEC') or die;
 				?>
 			">
 		</a>
+		</li>
 	<?php
+		}
 	}
 	?>
-</div>
-<?php
-JFactory::getDocument()->addScript(JURI::base().'components/com_vkgallery/js/blueimp-gallery.min.js');
+</ul>
 
-?>
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
 
 <script>
-jQuery("#vkg-image-set").ready(function() {
-	document.getElementById('vkg-image-set').onclick = function (event) {
-	    event = event || window.event;
-	    var target = event.target || event.srcElement,
-		link = target.src ? target.parentNode : target,
-		options = {index: link, event: event},
-		links = this.getElementsByTagName('a');
-	    blueimp.Gallery(links, options);
-	}
-});
+document.getElementById('vkg-image-set').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
 </script>
+<?php
+}
+?>

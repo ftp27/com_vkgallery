@@ -33,7 +33,7 @@ class VkgalleryViewsVkgalleryHtml extends JViewLegacy
 			$this->childs = $menuModel->getItems();
 		} else {
 			$layout = "album";
-			$document->addStyleSheet($pathToCom.'/css/style.css');
+			$document->addStyleSheet($pathToCom.'/css/blueimp-gallery.min.css');
 			$document->addScript($pathToCom.'/js/blueimp-gallery.min.js');
 			$imageModel = new VkgalleryModelsImage();
 			$imageModel->_album_id = $this->menuItem->album;

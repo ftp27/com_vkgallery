@@ -11,7 +11,11 @@ defined('_JEXEC') or die;
 	<?php
 		$size = count($this->pathway);
 		$i = 0;
+		$visible = true;
 		for ($i=$size; $i > 0; $i--) {
+			if ($this->pathway[$i]->visible == "0") {
+				$visible = false;
+			}
 		?>
 			<li>
 				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->pathway[$i]->id)?>">
@@ -23,13 +27,15 @@ defined('_JEXEC') or die;
 	?>
 	<li class="active"><?=$this->pathway[0]->title?></li>
 </ol>
-
-<ul class="vkg-image-gallery">
+<?php
+ if ($visible) {
+?>
+<ul class="vkg-image-gallery vkg-image-albums">
 	<?php
 		$size = count($this->childs);
 		$i = 0;
 		for ($i=0; $i < $size; $i++) {
-			if ($this->childs[$i]->type != "elem") {
+			if ($this->childs[$i]->type != "elem" && $this->childs[$i]->visible == "1") {
 		?>
 			  <li>
 				<a class="vkg-image" href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
@@ -62,7 +68,7 @@ defined('_JEXEC') or die;
 		$size = count($this->childs);
 		$i = 0;
 		for ($i=0; $i < $size; $i++) {
-			if ($this->childs[$i]->type == "elem") {
+			if ($this->childs[$i]->type == "elem" && $this->childs[$i]->visible == "1") {
 		?>
 			<li>
 				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
@@ -75,4 +81,5 @@ defined('_JEXEC') or die;
 	?>
 </ul>
 <?php
+}
 ?>
