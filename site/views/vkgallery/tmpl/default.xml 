@@ -4,7 +4,7 @@
         <message>Отобразить пункт меню или альбом</message>
     </layout>
     <fields name="request">
-        <fieldset name="request">
+        <fieldset name="request" addfieldpath="/components/com_vkgallery/models/fields">
 	    <field 
 		name="id" 
 		type="Menus" 
