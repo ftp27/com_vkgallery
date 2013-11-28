@@ -48,6 +48,10 @@ class VkgalleryViewsImport extends VkgalleryViewsDefault
 				
 				$count = $obj->response->count;
 				$albums = $obj->response->items;
+
+				//Remove deleted albums
+				$this->deletedAlbums = $AlbumModel->deleteAlbums($albums);
+				$this->deletedImages = 0;
 				
 				$this->album_count = $count;
 				$this->image_count = 0;
@@ -61,6 +65,9 @@ class VkgalleryViewsImport extends VkgalleryViewsDefault
 					$image_obj = json_decode($image_json);
 					$image_count = $image_obj->response->count;
 					$images = $image_obj->response->items;
+
+					//Remove deleted images
+					$this->deletedImages += $ImageModel->deleteImages($images,$album_id);
 					
 					$this->image_count += $image_count;
 					

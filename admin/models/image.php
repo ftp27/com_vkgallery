@@ -136,24 +136,66 @@ class VkgalleryModelsImage extends VkgalleryModelsDefault
 	function insert($data) {
 		$db = JFactory::getDBO();
 		$db->setQuery("INSERT INTO ".$this->_tableName.
-													"(`id`, `album_id`, `photo_75`, `photo_130`, `photo_604`, `photo_807`, `photo_1280`, `photo_2560`, `width`, `height`, `text`, `date`, `likes`, `comments`) VALUES ".
-													"(".
-														$data->id." , ".
-												"'".mysql_escape_string($data->album_id)."' , ".
-												"'".mysql_escape_string($data->photo_75)."' , ".
-												"'".mysql_escape_string($data->photo_130)."' , ".
-												"'".mysql_escape_string($data->photo_604)."' , ".
-												"'".mysql_escape_string($data->photo_807)."' , ".
-												"'".mysql_escape_string($data->photo_1280)."' , ".
-												"'".mysql_escape_string($data->photo_2560)."' , ".
-														$data->width." , ".
-														$data->height." , ".
-												"'".mysql_escape_string($data->text)."' , ".
-														$data->date." , ".
-														$data->likes." , ".
-														$data->comments.
-													")");
+				"(`id`, `album_id`, `photo_75`, `photo_130`, `photo_604`, `photo_807`, `photo_1280`, `photo_2560`, `width`, `height`, `text`, `date`, `likes`, `comments`) VALUES ".
+				"(".
+					$data->id." , ".
+					"'".mysql_escape_string($data->album_id)."' , ".
+					"'".mysql_escape_string($data->photo_75)."' , ".
+					"'".mysql_escape_string($data->photo_130)."' , ".
+					"'".mysql_escape_string($data->photo_604)."' , ".
+					"'".mysql_escape_string($data->photo_807)."' , ".
+					"'".mysql_escape_string($data->photo_1280)."' , ".
+					"'".mysql_escape_string($data->photo_2560)."' , ".
+					$data->width." , ".
+					$data->height." , ".
+					"'".mysql_escape_string($data->text)."' , ".
+					$data->date." , ".
+					$data->likes." , ".
+					$data->comments.
+				")");
 		return $db->query();
+	}
+
+	function clearVars() {
+		$this->_id = null;
+		$this->_album_id = null;
+		$this->_photo_75 = null;
+		$this->_photo_130 = null;
+		$this->_photo_604 = null;
+		$this->_photo_807 = null;
+		$this->_photo_1280 = null;
+		$this->_photo_2560 = null;
+		$this->_width = null;
+		$this->_height = null;
+		$this->_text = null;
+		$this->_date = null;
+		$this->_likes = null;
+		$this->_comments = null;
+		$this->_position = null;
+		$this->_visible = null;
+	}
+
+	function deleteImages($images, $album_id) {
+		$this->clearVars();
+		$this->_album_id=$album_id;
+		$items = $this->getItems();
+		$ImageTable =& JTable::getInstance('image', 'Table');
+		$count = 0;
+
+		for ($i=0; $i<count($items); $i++) {
+			$found = false;
+			for ($j=0; $j<count($images); $j++) {
+				if ($items[$i]->id == $images[$j]->id) {
+					$found = true;
+					break;
+				}
+			}
+			if (!$found) {
+				$count++;
+				$ImageTable->delete($items[$i]->id);
+			}
+		}
+		return $count;
 	}
 
  

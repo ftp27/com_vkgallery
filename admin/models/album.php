@@ -106,18 +106,57 @@ class VkgalleryModelsAlbum extends VkgalleryModelsDefault
 	function insert($data) {
 		$db = JFactory::getDBO();
 		$db->setQuery("INSERT INTO ".$this->_tableName.
-													"(`id`, `thumb_id`, `title`, `description`, `created`, `updated`, `size`, `thumb_src`) VALUES ".
-													"(".
-														$data->id." , ".
-												"'".mysql_escape_string($data->thumb_id)."' , ".
-												"'".mysql_escape_string($data->title)."' , ".
-												"'".mysql_escape_string($data->description)."' , ".
-														$data->created." , ".
-														$data->updated." , ".
-														$data->size." , ".
-												"'".mysql_escape_string($data->thumb_src)."'".
-													")");
+				"(`id`, `thumb_id`, `title`, `description`, `created`, `updated`, `size`, `thumb_src`) VALUES ".
+				"(".
+					$data->id." , ".
+					"'".mysql_escape_string($data->thumb_id)."' , ".
+					"'".mysql_escape_string($data->title)."' , ".
+					"'".mysql_escape_string($data->description)."' , ".
+					$data->created." , ".
+					$data->updated." , ".
+					$data->size." , ".
+					"'".mysql_escape_string($data->thumb_src)."'".
+				")");
 		return $db->query();
+	}
+
+	function clearVars() {
+		$this->_id = null;
+		$this->_thumb_id = null;
+		$this->_title = null;
+		$this->_description = null;
+		$this->_created = null;
+		$this->_updated = null;
+		$this->_size = null;
+		$this->_thumb_src = null;
+		$this->_position = null;
+		$this->_visible = null;
+	}
+
+	function deleteAlbums($albums) {
+		$this->clearVars();
+		$items = $this->getItems();
+		$AlbumTable =& JTable::getInstance('album', 'Table');
+		$db = JFactory::getDBO();
+		$count = 0;
+
+		for ($i=0; $i<count($items); $i++) {
+			$found = false;
+			for ($j=0; $j<count($albums); $j++) {
+				if ($items[$i]->id == $albums[$j]->id) {
+					$found = true;
+					break;
+				}
+			}
+			if (!$found) {
+				$count++;
+				$AlbumTable->delete($items[$i]->id);
+				$db->setQuery("DELETE FROM #__vkg_image WHERE album_id = ".$items[$i]->id);
+				$db->query();
+			}
+		}
+
+		return $count;
 	}
 
 }
