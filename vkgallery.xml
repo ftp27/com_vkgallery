@@ -6,7 +6,7 @@
 	<authorUrl>http://ftp27host.ru</authorUrl>
 	<creationDate>2013</creationDate>
 	<license>GPL v2</license>
-	<version>0.1-dev</version>
+	<version>0.1</version>
 	<description>Отображение альбомов вк как Галлереи</description>
 	<install>
 		<sql>
