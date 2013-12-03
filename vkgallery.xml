@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+	<name>VK Gallery</name>
+	<author>Aleksey Cherepanov</author>
+	<authorEmail>ftp27host@gmail.com</authorEmail>
+	<authorUrl>http://ftp27host.ru</authorUrl>
+	<creationDate>2013</creationDate>
+	<license>GPL v2</license>
+	<version>0.1</version>
+	<description>Отображение альбомов вк как Галлереи</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>vkgallery.php</filename>
+		<filename>controller.php</filename>
+		<filename>router.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+		<folder>tables</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>img</folder>
+	</files>
+
+	<administration>
+		<menu>VK Gallery</menu>
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>vkgallery.php</filename>
+			<filename>config.xml</filename> 
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<folder>controllers</folder>
+			<folder>css</folder>
+		</files>
+	</administration>
+</extension>

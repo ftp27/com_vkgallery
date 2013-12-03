@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Пункт меню">
+        <message>Отобразить пункт меню или альбом</message>
+    </layout>
+    <fields name="request">
+        <fieldset name="request" addfieldpath="/components/com_vkgallery/models/fields">
+	    <field 
+		name="id" 
+		type="Menus" 
+		label="Пункт меню" 
+		description="Выбор родительской пункта"/>
+        </fieldset>
+    </fields>
+</metadata>

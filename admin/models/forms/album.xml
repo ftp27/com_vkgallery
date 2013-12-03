@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+<fieldset addfieldpath="/administrator/components/com_vkgallery/models/fields">
+	<field 
+		name="id" 
+		type="text" 
+		class="readonly input-large" 
+		label="ID"
+		description="идентификатор альбома" 
+		size="32" 
+		default="0"
+		readonly="true" />
+		
+	<field 
+		name="thumb_id" 
+		type="text" 
+		class="readonly input-large" 
+		label="ID обложки"
+		description="идентификатор фотографии, которая является обложкой" 
+		size="32" 
+		default="0"
+		readonly="true" />
+		
+	<field 
+		name="title" 
+		type="text" 
+		class="input-xxlarge" 
+		label="Название"
+		description="название альбома" 
+		required="true" />
+		
+	<field 
+		name="description" 
+		type="text" 
+		class="input-xxlarge" 
+		label="Описание"
+		description="описание альбома" />
+		
+	<field
+		name="visible"
+		id="visible"
+		type="list"
+		label="Видимость"
+		description="Виден ли альбом посетителям"
+		class="inputbox"
+		size="1"
+		default="true">
+			<option value="1">Видим</option>
+			<option value="0">Не видим</option>
+	</field>
+</fieldset>
+</form>
