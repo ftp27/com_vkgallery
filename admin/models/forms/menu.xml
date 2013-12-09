@@ -5,8 +5,7 @@
 		name="id" 
 		type="text" 
 		class="readonly input-large" 
-		label="ID"
-		description="идентификатор пункта меню" 
+		label="COM_VKGALLERY_ADMIN_FILED_ID_LABEL"
 		size="32" 
 		default="0"
 		readonly="true" />
@@ -15,49 +14,46 @@
 		name="title" 
 		type="text" 
 		class="input-xxlarge" 
-		label="Наименование"
-		description="Наименование пункта меню" 
+		label="COM_VKGALLERY_ADMIN_FILED_TITLE_LABEL"
 		required="true" />
 		
 	<field
 		name="type"
 		id="visible"
 		type="list"
-		label="Тип"
-		description="Пункт меню с подпунктами или с альбомом"
+		label="COM_VKGALLERY_ADMIN_FILED_MENU_TYPE_LABEL"
+		description="COM_VKGALLERY_ADMIN_FILED_MENU_TYPE_DESCRIPTION"
 		class="inputbox"
 		size="1"
 		default="gallery">
-			<option value="elem">С подпунктами</option>
-			<option value="gallery">С альбомом</option>
+			<option value="elem">COM_VKGALLERY_ADMIN_FILED_MENU_TYPE_MENU</option>
+			<option value="gallery">COM_VKGALLERY_ADMIN_FILED_MENU_TYPE_ALBUM</option>
 	</field>
 		
 	<field
 		name="parent"
 		type="Menus"
 		class="input-xxlarge"
-		label="Родитель"
-		required="true"
-		description="Выбор родительской пункта" />
+		label="COM_VKGALLERY_ADMIN_FILED_PARENT_LABEL"
+		required="true" />
 		
 	<field
 		name="album"
 		type="Albums"
 		class="input-xxlarge"
-		label="Альбом"
-		description="Выбор альбома для отображения" />
+		label="COM_VKGALLERY_ADMIN_FILED_ALBUM_LABEL" />
 		
 	<field
 		name="visible"
 		id="visible"
 		type="list"
-		label="Видимость"
-		description="Видим ли пункт меню посетителям"
+		label="COM_VKGALLERY_ADMIN_FILED_VISIBLE_LABEL"
+		description="COM_VKGALLERY_ADMIN_FILED_VISIBLE_DESCRIPTION"
 		class="inputbox"
 		size="1"
 		default="true">
-			<option value="1">Видим</option>
-			<option value="0">Не видим</option>
+			<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
+			<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
 	</field>
 </fieldset>
 </form>

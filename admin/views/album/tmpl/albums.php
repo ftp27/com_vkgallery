@@ -10,13 +10,13 @@ JHtml::_('behavior.tooltip');
 	<?=$this->sidebar?>
 </div>
 <form class="span10" action="<?php echo JRoute::_('index.php?option=com_vkgallery&view=album'); ?>" method="post" name="adminForm" id="adminForm">
-<legend>Альбомы</legend>
+<legend><?php echo JText::_('COM_VKGALLERY_ADMIN_ALBUMS_TITLE'); ?></legend>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th style="width: 1px;">id</td>
-			<th>Наименование</th>
-			<th style="width: 1px;">Видимость</th>
+			<th style="width: 1px;"><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_ID'); ?></td>
+			<th><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_NAME'); ?></th>
+			<th style="width: 1px;"><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_VISIBLE'); ?></th>
 		</tr>
 	</thead>
 	<tbody>

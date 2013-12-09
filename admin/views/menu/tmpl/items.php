@@ -11,15 +11,15 @@ JHtml::_('behavior.tooltip');
 </div>
 <form class="span10" action="<?php echo JRoute::_('index.php?option=com_vkgallery&view=menu'); ?>" method="post" name="adminForm" id="adminForm">
 <input type="hidden" name="task" value="" />
-<legend>Меню</legend>
+<legend><?php echo JText::_('COM_VKGALLERY_ADMIN_MENU_TITLE'); ?></legend>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>id</td>
-			<th>Наименование</th>
-			<th>Тип</th>
-			<th>Родитель</th>
-			<th>Видимость</th>
+			<th><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_ID'); ?></td>
+			<th><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_NAME'); ?></th>
+			<th><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_TYPE'); ?></th>
+			<th><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_PARENT'); ?></th>
+			<th><?php echo JText::_('COM_VKGALLERY_ADMIN_TABLE_VISIBLE'); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -40,10 +40,10 @@ JHtml::_('behavior.tooltip');
 				</td>
 				<td><?php
 							if ($this->items[$i]->type == "elem") {
-								echo "Пункт меню";
+								echo JText::_('COM_VKGALLERY_ADMIN_MENU_ITEM');
 							} else {
 							?>
-								Альбом - 
+								<?php echo JText::_('COM_VKGALLERY_ADMIN_ALBUM'); ?> - 
 								<a href="<?=JRoute::_('index.php?option=com_vkgallery&layout=album&view=album&id='.$this->items[$i]->album); ?>">
 									<?=$this->items[$i]->album_title?>
 								</a>
@@ -60,7 +60,7 @@ JHtml::_('behavior.tooltip');
 						</a>
 					<?php
 					} else {
-							echo "Корень";
+							echo JText::_('COM_VKGALLERY_ADMIN_MENU_ROOT');
 					}
 					?>
 				</td>	

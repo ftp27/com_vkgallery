@@ -84,8 +84,8 @@ jQuery(document).ready(function(){
 	</div>
 	
 	<div class="form-actions"> 
-			<input class="btn btn-primary" type="button" value="Сохранить" onclick="Joomla.submitbutton('save')" /> 
-			<input class="btn btn-danger" style="float:right" type="button" value="Удалить" onclick="Joomla.submitbutton('delete')" /> 
+			<input class="btn btn-primary" type="button" value="<?php echo JText::_('COM_VKGALLERY_ADMIN_SAVE'); ?>" onclick="Joomla.submitbutton('save')" /> 
+			<input class="btn btn-danger" style="float:right" type="button" value="<?php echo JText::_('COM_VKGALLERY_ADMIN_DELETE'); ?>" onclick="Joomla.submitbutton('delete')" /> 
 	</div> 
 </form>
 </div>

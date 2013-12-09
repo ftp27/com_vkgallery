@@ -2,29 +2,44 @@
 <config>
 	<fieldset
 		name="account"
-		label="Настройки аккаунта ВК"
+		label="COM_VKGALLERY_CONFIG_ACCOUNT_TITLE"
 		description="" 
 	>
 		<field
 			name="client_id"
 			type="text"
-			label="ID приложения"
-			description="Идентификатор Вашего приложения"
+			label="COM_VKGALLERY_CONFIG_ACCOUNT_CLIENT_ID_LABEL"
+			description="COM_VKGALLERY_CONFIG_ACCOUNT_CLIENT_ID_DESCRIPTION"
 			default=""
 		/>
 		<field
 			name="client_secret"
 			type="text"
-			label="Защищенный ключ"
-			description="Защищенный ключ Вашего приложения"
+			label="COM_VKGALLERY_CONFIG_ACCOUNT_CLIENT_SECRET_LABEL"
+			description="COM_VKGALLERY_CONFIG_ACCOUNT_CLIENT_SECRET_DESCRIPTION"
 			default=""
 		/>
 		<field
 			name="user_id"
 			type="text"
-			label="ID пользователя"
-			description="ID страницы пользователя с которым следует проводить синхронизацию альбомов"
+			label="COM_VKGALLERY_CONFIG_ACCOUNT_USER_ID_LABEL"
+			description="COM_VKGALLERY_CONFIG_ACCOUNT_USER_ID_DESCRIPTION"
 			default=""
 		/>
+	</fieldset>
+
+	<fieldset
+		name="site_view"
+		label="Настройки отображения компонента"
+		description="">
+		<field 
+			name="breadcrumps" 
+			type="radio" 
+			default="0" 
+			label="COM_VKGALLERY_CONFIG_SITE_BREADCRUMPS" 
+			description="">
+		  		<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
+		  		<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
+		</field>	
 	</fieldset>
 </config>
