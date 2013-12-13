@@ -2,10 +2,15 @@
 // Запрет прямого доступа.
 defined('_JEXEC') or die;
 ?>
-<ol class="breadcrumb">
+<ol class="breadcrumb" <?php
+	$bread_enable = JComponentHelper::getParams('com_vkgallery')->get("breadcrumps");
+	if ($bread_enable == "0") {
+		echo 'style="display: none;"';
+	}
+?> >
 	<li>
 		<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id=0')?>">
-			Корень
+			<?=JText::_('COM_VKGALLERY_SITE_ROOT')?>
 		</a>
 	</li>
 	<?php
@@ -19,13 +24,13 @@ defined('_JEXEC') or die;
 		?>
 			<li>
 				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->pathway[$i]->id)?>">
-					<?=$this->pathway[$i]->title?>
+					<?=JText::_($this->pathway[$i]->title)?>
 				</a>
 			</li>
 		<?php
 		}
 	?>
-	<li class="active"><?=$this->pathway[0]->title?></li>
+	<li class="active"><?=JText::_($this->pathway[0]->title)?></li>
 </ol>
 <?php
  if ($visible) {
@@ -53,7 +58,7 @@ defined('_JEXEC') or die;
 					>
 				<a class="vkg-image-title" 
 					href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
-						<?=$this->childs[$i]->title?>
+						<?=JText::_($this->childs[$i]->title)?>
 				</a>
 				</a>
 			  </li>
@@ -72,7 +77,7 @@ defined('_JEXEC') or die;
 		?>
 			<li>
 				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
-					<?=$this->childs[$i]->title?>
+					<?=JText::_($this->childs[$i]->title)?>
 				</a>
 			</li>
 		<?php

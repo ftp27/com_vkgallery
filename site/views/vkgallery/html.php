@@ -37,6 +37,7 @@ class VkgalleryViewsVkgalleryHtml extends JViewLegacy
 			$document->addScript($pathToCom.'/js/blueimp-gallery.min.js');
 			$imageModel = new VkgalleryModelsImage();
 			$imageModel->_album_id = $this->menuItem->album;
+			$this->parent_id = $this->menuItem->parent;
 			$this->images = $imageModel->getItems();
 		}
 

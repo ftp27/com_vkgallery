@@ -4,10 +4,15 @@ defined('_JEXEC') or die;
 ?>
 
 
-<ol class="breadcrumb">
+<ol class="breadcrumb" <?php
+	$bread_enable = JComponentHelper::getParams('com_vkgallery')->get("breadcrumps");
+	if ($bread_enable == "0") {
+		echo 'style="display: none;"';
+	}
+?> >
 	<li>
 		<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id=0')?>">
-			Корень
+			<?=JText::_('COM_VKGALLERY_SITE_ROOT')?>
 		</a>
 	</li>
 	<?php
@@ -21,17 +26,28 @@ defined('_JEXEC') or die;
 		?>
 			<li>
 				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->pathway[$i]->id)?>">
-					<?=$this->pathway[$i]->title?>
+					<?=JText::_($this->pathway[$i]->title)?>
 				</a>
 			</li>
 		<?php
 		}
 	?>
-	<li class="active"><?=$this->pathway[0]->title?></li>
+	<li class="active"><?=JText::_($this->pathway[0]->title)?></li>
 </ol>
 <?php
  if ($visible) {
 ?>
+<?php
+$back_enable = JComponentHelper::getParams('com_vkgallery')->get("albumback");
+if ($back_enable == "1") {
+	?>
+<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->parent_id)?>" class="btn btn-default">
+← <?=JText::_('COM_VKGALLERY_SITE_BACK')?>
+</a>
+	<?php
+}
+?>
+
 <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
 <ul id="vkg-image-set" class="vkg-image-gallery links">
 	<?php

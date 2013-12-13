@@ -30,13 +30,23 @@
 
 	<fieldset
 		name="site_view"
-		label="Настройки отображения компонента"
+		label="COM_VKGALLERY_CONFIG_SITE_TITLE"
 		description="">
 		<field 
 			name="breadcrumps" 
 			type="radio" 
 			default="0" 
 			label="COM_VKGALLERY_CONFIG_SITE_BREADCRUMPS" 
+			description="">
+		  		<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
+		  		<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
+		</field>
+
+		<field 
+			name="albumback" 
+			type="radio" 
+			default="1" 
+			label="COM_VKGALLERY_CONFIG_SITE_ALBUMBACK" 
 			description="">
 		  		<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
 		  		<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
