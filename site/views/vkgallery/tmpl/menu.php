@@ -35,6 +35,19 @@ defined('_JEXEC') or die;
 <?php
  if ($visible) {
 ?>
+
+<?php
+//Title
+$title_enable = JComponentHelper::getParams('com_vkgallery')->get("title");
+if ($title_enable == "1") {
+	?>
+	<div class="page-header">
+		<h1><?=JText::_($this->pathway[0]->title)?></h1>
+	</div>
+	<?php
+}
+?>
+
 <ul class="vkg-image-gallery vkg-image-albums">
 	<?php
 		$size = count($this->childs);

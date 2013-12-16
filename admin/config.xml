@@ -50,6 +50,16 @@
 			description="">
 		  		<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
 		  		<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
+		</field>
+
+		<field 
+			name="title" 
+			type="radio" 
+			default="1" 
+			label="COM_VKGALLERY_CONFIG_SITE_TITLE" 
+			description="">
+		  		<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
+		  		<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
 		</field>	
 	</fieldset>
 </config>

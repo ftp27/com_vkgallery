@@ -37,7 +37,21 @@ defined('_JEXEC') or die;
 <?php
  if ($visible) {
 ?>
+
 <?php
+//Title
+$title_enable = JComponentHelper::getParams('com_vkgallery')->get("title");
+if ($title_enable == "1") {
+	?>
+	<div class="page-header">
+		<h1><?=JText::_($this->pathway[0]->title)?></h1>
+	</div>
+	<?php
+}
+?>
+
+<?php
+// Back button
 $back_enable = JComponentHelper::getParams('com_vkgallery')->get("albumback");
 if ($back_enable == "1") {
 	?>
