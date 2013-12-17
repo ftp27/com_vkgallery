@@ -42,6 +42,7 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 			"$m.title as title, ".
 			"$m.type as type, ".
 			"$m.album as album, ".
+			"$m.thumb_src as thumb_src, ".
 			"$m.parent as parent, ".
 			"$m.position as position, ".
 			"$m.visible as visible, ".
@@ -80,6 +81,11 @@ class VkgalleryModelsMenu extends VkgalleryModelsDefault
 		if(is_numeric($this->_album))
 		{
 			$query->where($m.'.album = ' . (float) $this->_album);
+		}
+
+		if($this->_thumb_src)
+		{
+			$query->where($m.'.thumb_src = ' . $this->_thumb_src);
 		}
 
 		if(is_numeric($this->_parent))

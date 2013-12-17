@@ -15,7 +15,7 @@ class VkgalleryViewsDefault extends JViewLegacy
     }
 
     protected function addToolBar() {
-		JToolBarHelper::title(JText::_('Настройки галлереи'), 'vkgallery');
+		JToolBarHelper::title(JText::_('COM_VKGALLERY_ADMIN_TITLE'), 'vkgallery');
 		JToolBarHelper::preferences('com_vkgallery');
 		
 		$app = JFactory::getApplication();
@@ -23,22 +23,22 @@ class VkgalleryViewsDefault extends JViewLegacy
 		$vName = $app->input->get('view','menu');
 
 		JHtmlSidebar::addEntry(
-			JText::_('Меню'),
+			JText::_('COM_VKGALLERY_ADMIN_MENU_TITLE'),
 			$url_main.'&view=menu',
 			$vName == 'menu'
 		);
 		JHtmlSidebar::addEntry(
-			JText::_('Альбомы'),
+			JText::_('COM_VKGALLERY_ADMIN_ALBUMS_TITLE'),
 			$url_main.'&view=album',
 			$vName == 'album'
 		);
 		JHtmlSidebar::addEntry(
-			JText::_('Изображения'),
+			JText::_('COM_VKGALLERY_ADMIN_PHOTOS_TITLE'),
 			$url_main.'&view=image',
 			$vName == 'image'
 		);
 		JHtmlSidebar::addEntry(
-			JText::_('Импорт'),
+			JText::_('COM_VKGALLERY_ADMIN_IMPORT_TITLE'),
 			$url_main.'&view=import',
 			$vName == 'import'
 		);

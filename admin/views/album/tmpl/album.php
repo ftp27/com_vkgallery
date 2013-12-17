@@ -64,7 +64,7 @@ JHtml::_('jquery.framework');
 <div class="panel">
 	<div class="panel-heading">
 		<h4 class="panel-title">
-		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Фотографии альбома</a>
+		<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><?php echo JText::_('COM_VKGALLERY_ADMIN_ALBUM_PHOTOS'); ?></a>
 		</h4>
 	</div>
 	<div id="collapseOne" class="panel-collapse collapse">
@@ -98,7 +98,7 @@ JHtml::_('jquery.framework');
 </div>
 </div>
 	<div class="form-actions"> 
-			<input class="btn btn-primary" type="button" value="Сохранить" onclick="Joomla.submitbutton()" /> 
+			<input class="btn btn-primary" type="button" value="<?php echo JText::_('COM_VKGALLERY_ADMIN_SAVE'); ?>" onclick="Joomla.submitbutton()" /> 
 	</div> 
 </form>
 </div>

@@ -11,7 +11,7 @@ JHtml::_('jquery.framework');
 	<?=$this->sidebar?>
 </div>
 <form class="span10" action="<?php echo JRoute::_('index.php?option=com_vkgallery&view=image'); ?>" method="post" name="adminForm" id="adminForm">
-<legend>Фотографии</legend>
+<legend><?php echo JText::_('COM_VKGALLERY_ADMIN_PHOTOS_TITLE'); ?></legend>
 <ul class="vkg-image-gallery">
 <?php
 $n = count($this->items);

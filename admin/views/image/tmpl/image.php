@@ -75,7 +75,7 @@ JHtml::_('behavior.tooltip');
 	</div>
 	
 	<div class="form-actions"> 
-			<input class="btn btn-primary" type="button" value="Сохранить" onclick="Joomla.submitbutton()" /> 
+			<input class="btn btn-primary" type="button" value="<?php echo JText::_('COM_VKGALLERY_ADMIN_SAVE'); ?>" onclick="Joomla.submitbutton()" /> 
 	</div> 
 </form>
 </div>

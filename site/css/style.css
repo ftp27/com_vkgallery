@@ -1,13 +1,13 @@
 .vkg-image-gallery {
 	text-align: center;
-	margin: 0px 0 10px;
+	margin: 0px;
 	display: block;
 	list-style-type: disc;
 	-webkit-margin-before: 1em;
 	-webkit-margin-after: 1em;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
+	-webkit-padding-start: 0px;
 }
 
 .vkg-image-gallery>li {

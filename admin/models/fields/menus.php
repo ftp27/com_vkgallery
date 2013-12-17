@@ -32,7 +32,7 @@ class JFormFieldMenus extends JFormFieldList
 		
 		if ($list)
 		{
-			$options[]  = JHtml::_('select.option', 0, 'Корень');
+			$options[]  = JHtml::_('select.option', 0, JText::_('COM_VKGALLERY_ADMIN_MENU_ROOT'));
 			foreach ($list as $category)
 			{
 				if ($category->id != $id && $category->type == "elem" && !(isset($ch[$category->id]))) {

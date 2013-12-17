@@ -12,6 +12,9 @@ class TableMenu extends JTable
 	
 	/** @var integer Album */
 	var $album = null;
+
+	/** @var string thumb_src */
+	var $thumb_src = null;
 	
 	/** @var integer Parent */
 	var $parent = null;

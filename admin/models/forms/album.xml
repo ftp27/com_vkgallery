@@ -5,8 +5,7 @@
 		name="id" 
 		type="text" 
 		class="readonly input-large" 
-		label="ID"
-		description="идентификатор альбома" 
+		label="COM_VKGALLERY_ADMIN_FILED_ID_LABEL" 
 		size="32" 
 		default="0"
 		readonly="true" />
@@ -15,8 +14,7 @@
 		name="thumb_id" 
 		type="text" 
 		class="readonly input-large" 
-		label="ID обложки"
-		description="идентификатор фотографии, которая является обложкой" 
+		label="COM_VKGALLERY_ADMIN_FILED_ALBUM_THUMB"
 		size="32" 
 		default="0"
 		readonly="true" />
@@ -25,28 +23,26 @@
 		name="title" 
 		type="text" 
 		class="input-xxlarge" 
-		label="Название"
-		description="название альбома" 
+		label="COM_VKGALLERY_ADMIN_FILED_TITLE_LABEL"
 		required="true" />
 		
 	<field 
 		name="description" 
 		type="text" 
 		class="input-xxlarge" 
-		label="Описание"
-		description="описание альбома" />
+		label="COM_VKGALLERY_ADMIN_FILED_DESCRIPTION"/>
 		
 	<field
 		name="visible"
 		id="visible"
 		type="list"
-		label="Видимость"
-		description="Виден ли альбом посетителям"
+		label="COM_VKGALLERY_ADMIN_FILED_VISIBLE_LABEL"
+		description="COM_VKGALLERY_ADMIN_FILED_VISIBLE_DESCRIPTION"
 		class="inputbox"
 		size="1"
 		default="true">
-			<option value="1">Видим</option>
-			<option value="0">Не видим</option>
+			<option value="1">COM_VKGALLERY_ADMIN_FILED_VISIBLE_TRUE</option>
+			<option value="0">COM_VKGALLERY_ADMIN_FILED_VISIBLE_FALSE</option>
 	</field>
 </fieldset>
 </form>
