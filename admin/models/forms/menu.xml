@@ -42,6 +42,11 @@
 		type="Albums"
 		class="input-xxlarge"
 		label="COM_VKGALLERY_ADMIN_FILED_ALBUM_LABEL" />
+
+	<field 
+		name="thumb_src" 
+		type="media" 
+		label="COM_VKGALLERY_ADMIN_FILED_THUMB_SRC_LABEL" />
 		
 	<field
 		name="visible"

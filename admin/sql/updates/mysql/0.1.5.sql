@@ -1,0 +1,1 @@
+ALTER TABLE `#__vkg_menu` ADD COLUMN `thumb_src` TEXT NULL AFTER `album`;

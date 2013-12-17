@@ -73,6 +73,15 @@ jQuery(document).ready(function(){
 				<?=$this->form->getInput('album'); ?>
 		</div>
 	</div>
+
+	<div class="control-group">
+		<div class="control-label">
+				<?=$this->form->getLabel('thumb_src'); ?>
+		</div>
+		<div class="controls">
+				<?=$this->form->getInput('thumb_src'); ?>
+		</div>
+	</div>
 	
 	<div class="control-group">
 		<div class="control-label">

@@ -53,14 +53,13 @@ if ($title_enable == "1") {
 		$size = count($this->childs);
 		$i = 0;
 		for ($i=0; $i < $size; $i++) {
-			if ($this->childs[$i]->type != "elem" && $this->childs[$i]->visible == "1") {
+			if ($this->childs[$i]->visible == "1") {
 		?>
 			  <li>
 				<a class="vkg-image" href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
-					<img src="<?=$this->childs[$i]->thumb ?>" style="
+					<img src="<?=$this->childs[$i]->thumb_src?>" style="
 						<?php
-							$width = $this->childs[$i]->thumb_width ;
-							$height = $this->childs[$i]->thumb_height;
+							list($width, $height, $type, $attr) = getimagesize($this->childs[$i]->thumb_src);
 							if ($width > $height) {
 								echo "max-height: 100%; max-width: none;";
 							} else {
@@ -75,24 +74,6 @@ if ($title_enable == "1") {
 				</a>
 				</a>
 			  </li>
-		<?php
-			}
-		}
-	?>
-</ul>
-
-<ul class="nav nav-pills nav-stacked">
-	<?php
-		$size = count($this->childs);
-		$i = 0;
-		for ($i=0; $i < $size; $i++) {
-			if ($this->childs[$i]->type == "elem" && $this->childs[$i]->visible == "1") {
-		?>
-			<li>
-				<a href="<?=JRoute::_('index.php?option=com_vkgallery&view=vkgallery&id='.$this->childs[$i]->id)?>">
-					<?=JText::_($this->childs[$i]->title)?>
-				</a>
-			</li>
 		<?php
 			}
 		}
